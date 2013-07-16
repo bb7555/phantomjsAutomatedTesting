@@ -11,11 +11,9 @@ var config = require('./config')
 		if ( i < tests.length ) {
 			test = tests[i];
 			page = WebPage.create();
-
-			//page.viewportSize = { width: 480 };
 			
-			page.open('http://' + (local ? localdomain : test.host) + test.path,function(status) {
-				
+			var pageCall = function() {page.open('http://' + (local ? localdomain : test.host) + test.path,function(status) {
+
 				page.render(getFileName(test,local) + '.png');
 
 				page.close();
@@ -25,8 +23,15 @@ var config = require('./config')
 					makeCall(i,true);
 				}
 	
-			})
-			
+				});
+			}
+
+			try {
+		        	pageCall();         
+		        } catch (e) {
+		            //console.log(e);
+		            endProc();
+		        }	 
 			
 		} else {
 			// Last request should be complete as makeCall is only triggered by call completion
