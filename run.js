@@ -29,7 +29,7 @@ var config = require('./config')
 			try {
 		        	pageCall();         
 		        } catch (e) {
-		            //console.log(e);
+		            //in case the page call or page render throws an exception, get us outta here. Don't hang up.
 		            endProc();
 		        }	 
 			
