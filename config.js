@@ -1,8 +1,8 @@
 exports.tests = [
 	
-	{path:'/story/22841662/oklahoma-soldiers-lawyers-push-for-acquittal-on-some-charges-in-wikileaks-case' ,host:'www.newson6.com'}
+	{path:'/story/22841662/oklahoma-soldiers-lawyers-push-for-acquittal-on-some-charges-in-wikileaks-case?clienttype=smartdevice' ,host:'www.newson6.com'}
 
-	,{path:'/story/22840693/burglary-suspects-escape-after-chase-in-norman' ,host:'www.news9.com'}
+	/*,{path:'/story/22840693/burglary-suspects-escape-after-chase-in-norman' ,host:'www.news9.com'}
 
 	,{path:'/story/22842726/woman-picks-up-stranded-dave-matthews-on-hershey-road' ,host:'www.myfoxphilly.com'}
 
@@ -58,10 +58,10 @@ exports.tests = [
 
 	,{path:'/story/22837589/womans-lawsuit-against-dps-over-driver-license-moves-forward' ,host:'www.okcfox.com'}
 
-	,{path:'/story/22844806/expert-jackson-would-have-earned-1b-on-comeback' ,host:'www.kswo.com'}
+	,{path:'/story/22844806/expert-jackson-would-have-earned-1b-on-comeback' ,host:'www.kswo.com'}*/
 
 	];
 
 exports.getFileName = function(test,local) {
-		return 'results/' + test.host.replace(/\./g,'-').replace(/\:[0-9]+/,'').replace('-com','').replace('www-','') + test.path.replace(/\//g,'-') + ((local) ? '-locl' : '-prod')
+		return 'results/' + test.host.replace(/\./g,'-').replace(/\:[0-9]+/,'').replace('-com','').replace('www-','') + test.path.replace(/\//g,'-').replace(/\?clienttype=/g, "clienttype") + ((local) ? '-locl' : '-prod')
 	}

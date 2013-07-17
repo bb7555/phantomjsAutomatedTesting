@@ -12,6 +12,10 @@ var config = require('./config')
 			test = tests[i];
 			page = WebPage.create();
 			
+
+			//uncomment and edit the below line to change screen size for mobile. 
+			//page.viewportSize = { width: 320 };
+
 			var pageCall = function() {page.open('http://' + (local ? localdomain : test.host) + test.path,function(status) {
 
 				page.render(getFileName(test,local) + '.png');
